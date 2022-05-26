@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습7 form만들기</title>
+</head>
+<body>
+    <!-- 회원가입창 만들기 -->
+    <form action="">
+        
+        <input type="text" size="38" placeholder="아이디"><br><br>
+        <input type="password" size="38" placeholder="비밀번호">
+        <a href="naver.com"><font size=1>비밀번호 도움말</a><br><br>
+        <input type="password" size="38" placeholder="비밀번호 재입력"><br><br>
+        <input type="radio"  name="fav_language" >
+          <label >남</label>
+          <input type="radio" name="fav_language">
+          <label >여</label>
+          <input type="radio"  name="fav_language">
+          <label >선택안함</label><br><br>
+            <select name="phone">
+                <option value="none">휴대폰 번호 선택</option>
+                <option value="010">010</option>
+                <option value="011">011</option>
+                <option value="016">016</option>
+                <option value="017">017</option>
+            </select>-
+            <input type="number" min="0000" max="9999" size=20>-
+            <input type="number" min="0000" max="9999" size=20><br><br>
+        <input type="text" value="이메일" size="22">@
+            <select name="email" id="email">
+                <option value="none">선택</option>
+                <option value="naver.com">naver.com</option>
+                <option value="nate.com">nate.com</option>
+                <option value="hanmail.com">hanmail.com</option>
+                <option value="gmail.com">gmail.com</option>
+            </select><br><br>
+        <input type="submit" value="회원가입 완료">
+        <input type="reset" value="취소"> 
+    </form>
+</body>
+</html>
