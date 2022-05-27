@@ -4,7 +4,7 @@ div{
 }
 
 body{
-    background-color: black;
+    background-color: grey;
     font-family: 'Noto Sans KR', sans-serif;
 }
 p{
@@ -31,7 +31,7 @@ p{
 
 a{
     text-decoration: none;
-    color: grey;
+    color: black;
 }
 a:hover{
     color: white;
