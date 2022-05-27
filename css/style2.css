@@ -1,0 +1,21 @@
+/* class 색 변경  */
+.font_size{
+    font-size: 40px;
+}
+/* id 색 변경 */
+#divid{
+    color: rgb(255, 150, 136);
+}
+.fontfamily{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.fontstyle{
+    font-style: italic ;    
+}
+
+.fontsize{
+    font-size: 30px;;
+}
+.lineheight{
+    line-height: 50%;
+}
