@@ -4,8 +4,36 @@ div{
 }
 
 body{
-    background-color: hotpink;
+    background-color: black;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 p{
     color: blue;
 }
+/* class 셀렉터 */
+.red-text{
+    color: red;
+}
+.yellow-text{
+    color: yellow;
+}
+.big-size{
+    font-size: 50px; 
+}
+.border{
+    border-style: dashed;
+    border-width: 1px;
+}
+/* id는 #을 사용 */
+#div1{
+    background-color: darkslateblue;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
+a:hover{
+    color: white;
+}
+
