@@ -1,0 +1,38 @@
+<!-- html을 정의하는 코드 없어도 잘 작동함 -->
+<!DOCTYPE html>
+<!-- 영어 기준으로 작성된 페이지라고 알려줌 -->
+<html lang="en">
+<head>
+    <!-- 메타데이터 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="비디오 태그 연습">
+    <title>video</title>
+</head>
+<body>
+    <div>
+    <!-- autoplay가 안될 경우 mute를 하여 자동재생이 가능하게 됨 -->
+        <p><h1>mp4 플레이 리스트</h1></p>
+        <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" 
+        controls autoplay muted width="30%"></video>
+        <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" 
+        controls autoplay muted width="30%"></video>
+        <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" 
+        controls autoplay muted width="30%"></video>
+    </div>
+    <div>
+        <p><h1>유튜브 플레이 리스트</h1></p>
+        <!-- 유튜브 -->
+        <iframe width="30%" height="483" src="https://www.youtube.com/embed/qQd4nl_ptNg" title="YouTube video player" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+        <iframe width="30%" height="483" src="https://www.youtube.com/embed/qQd4nl_ptNg" title="YouTube video player" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+        <iframe width="30%" height="483" src="https://www.youtube.com/embed/qQd4nl_ptNg" title="YouTube video player" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    </div>
+</body>
+</html>
