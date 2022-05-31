@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    <style>
+        .div2 {
+            display: inline-block;
+            background-color: grey;
+            color: white;
+            border: 1px solid;
+            width: 100px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+      }
+        .clicked {
+            background-color: white;
+            color: black;
+      }
+
+    </style>
+    <div class="div1">
+        <div class="div2" onmouseover="onMouseOver()" >html</div>
+        <div class="div2" onmouseover="onMouseOver()" >css</div>
+        <div class="div2" onmouseover="onMouseOver()" >javascript</div>
+    </div>
+    <script>
+        var div2 = document.getElementsByClassName("div2");
+
+        function handleClick(event) {
+
+            if (event.target.classList[1] === "clicked") {
+                event.target.classList.remove("clicked");
+            } else {
+                for (var i = 0; i < div2.length; i++) {
+                div2[i].classList.remove("clicked");
+                }
+
+                event.target.classList.add("clicked");
+            }
+        }
+
+        function init() {
+            for (var i = 0; i < div2.length; i++) {
+                div2[i].addEventListener("click", handleClick);
+            }
+        }
+        function onMouseOver(){
+            let $target = document.getElementById("target");
+            $target.style.color = "yellow"
+        }
+
+        init();
+        
+
+    </script>
+
+</body>
+</html>
