@@ -79,19 +79,18 @@
   <script>
     let job1 = 0;
     let gender1= 0;
-    let hobby3 = 0;
-    let passwd5 = 0;
-    let ididid = 0;
+    let hobby1 = 0;
+    let passwd1 = 0;
 
     $('#submit_button').click(function() {
     // input tag 중에서 checkbox 타입 중에 name 이 chk 인 것만 고르기
 
-      // 성별
+      // 비밀번호
       if($('input[name=passwd]').val().length<5){
         alert("최소 비밀번호는 5이상입니다.");
         return;
       }else{
-        passwd5++;
+        passwd1++;
       }
 
       // 성별
@@ -107,7 +106,7 @@
         alert("직업을 선택하세요.");
         return;
       } else {
-        gender1++;
+        job1++;
       }
 
       // 취미
@@ -115,10 +114,10 @@
         alert("취미를 세 개 이상 고르시오");
         return;
       } else {
-        hobby3++;
+        hobby1++;
       };
 
-      if (job1 !=0 | gender1 != 0 | hobby3 !=0 | passwd5 != 0){
+      if (job1 !=0 && gender1 != 0 && hobby1 !=0 && passwd1 != 0){
         alert("가입되었습니다.");
       }
     });
