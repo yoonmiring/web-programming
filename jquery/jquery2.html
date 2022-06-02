@@ -77,25 +77,28 @@
             //체크 된 것이 있는지?
             // if($('input[name=chk]:checkbox').length>0)
             
-            //내부순환
-            let checkedSize=0;
-            $('input[name=chk]:checkbox').each(function(){
-                console.log("!!!!");
+            // 내부 순환
+            let checkedSize = 0;
+            $('input[name=chk]:checkbox').each(function () {
+                console.log('!!!');
                 console.log(this);
-                this.checked= true;
-                console.log(this);
-            })
-            //위와 동일한 코드
-            // for(let i =0; i<$('input[name=chk]:checkbox').length;i++){
-            //     let checkBox= $('input[name=chk]:checkbox')[i];
-            //     checkBox.prop('checked',true)
+                // this.checked = true;
+                console.log($(this));
+                // $(this).prop('checked', true);
+
+                // 개별 체크
+                if ($(this).is(':checked')) {
+                checkedSize++;
+                console.log(checkedSize);
+                }
+            });
+
+            // 위와 동일한 코드
+            // for (let i = 0; i < $('input[name=chk]:checkbox').length; i++) {
+            //   let $checkBox = $('input[name=chk]:checkbox')[i];
+            //   $checkBox.checked = true;
             // }
-            if($(this).is(':checked')){
-                checkedSize++ ;
-                console.log('@@@');
-            }
-        })
-       
+            });
     </script>
 </body>
 </html>
