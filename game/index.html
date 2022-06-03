@@ -9,16 +9,49 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
     <div class="container">
-            <img id="pika" src="assets/i013894533712.gif" alt="pikachu">
-            <img id="meta" src="assets/meta.png" alt="metamong">
-            <div id="score">점수 :0</div>
+            <div class="background"></div>
+            <img id="pika" src="assets/pika.gif" alt="pikachu">
+            <img id="meta" src="assets/meta1.gif" alt="metamong">
+            <img id="ball" src="assets/ball.png" alt="ball">
+            <div id="score">score : 0</div>
+    </div>
+    <div id="start">
+        <button class="game_start">GAME START</button>
+    </div>
+    <div id="gameover">
+        게임오버 화면
+        <button class="game_start">GAME START</button>
     </div>
     <script>
         let isJumping = false;
         let isGameOver = false;
-        let score =0;
-        
+
+        let score = 0;
+        let isBallStart = false;
+
+        function metaDown(){
+            let metaLeft = Number($('#meta').css('left').replace('px',''));
+            let ballRight = Number($('#meta').css('left').replace('px','')) + 100;
+
+            if (isBallStart && metaLeft <= ballRight ){
+                score += 200;
+
+                setScore(score);
+
+                //볼 원래자리로
+                ballInit();
+                isBallStart = false;
+
+                //메타몽 없애고
+                $('#meta').stop().hide();
+                metaInit();
+
+                //메타몽 출현
+                setTimeout(metaStart, getRandomIntInclusive(500,1000));
+            }
+        }
 
         function pikaDown(){
             if(isGameOver){
@@ -32,26 +65,56 @@
                 console.log('die');
                 // alert('Game Over');
                 $('#meta').stop();
-                isGameOver =true;
+                isGameOver = true;
             }
         }
 
         function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return Math.floor(Math.random() * (max - min )) + min;
         }
+        
+        
+
+        function ballStart() {
+            if(isBallStart){
+                retrun;
+            }
+
+            //발사
+            isBallStart = true;
+            $('#ball').show().animate({left: '1000px'},1000, function(){
+                ballInit();
+                isBallStart = false;
+            });
+        }
+
+        function ballInit(){
+            $('#ball').css('left','220px').stop().hide();
+        }
+
         function metaStart(){
             let speed = getRandomIntInclusive(1000, 1500); //1초에서 2초 사이
             let respawnTime = getRandomIntInclusive(1000,2000);
 
             $('#meta').animate({left:'-120px'},speed,function(){
+                if(isGameOver == false) {
+                    score += 100;
+                    setScore(score);
+                }
                 //왼쪽 끝까지 가면 초기 위치로 이동
-                $('#meta').css('right', '-150px').css('left','');
-                //디시출발
+                metaInit();
+                //다시출발
                 setTimeout(metaStart,respawnTime);
 
             });
+        }
+        function setScore(score) {
+            $('#score').text(`점수 : ${score}`);
+        }
+        function metaInit() {
+            $('#meta').css('right', '-150px').css('left','').show();
         }
 
         //연타방지
@@ -60,7 +123,7 @@
                 return;
             }
             isJumping = true;
-            $('#pika').animate({bottom: '+=150px'}).animate({bottom: '-=150px'},function(){
+            $('#pika').animate({bottom: '+=150px'}, 'fast').animate({bottom: '-=150px'},1000,function(){
                 isJumping = false;
             });
         }
@@ -69,8 +132,11 @@
         $(function () {
             $('body').keydown(function (event) {
                 switch (event.key) {
-                    case ' ':
+                    case ' ': 
                         jump();
+                        break;
+                    case 'Control':
+                        ballStart();
                         break;
                 }
             })
@@ -78,6 +144,8 @@
             metaStart();
             //충돌체크
             setInterval(pikaDown, 10);
+            //메타몽 죽은거 체크
+            setInterval(metaDown, 10);
         });
 
     </script>

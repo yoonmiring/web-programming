@@ -1,18 +1,60 @@
 .container{
     border: 1px black solid;
-    height: 90vh;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 50px;
 }
 
+body {
+    overflow-x: hidden;
+  }
+
 #pika {
-    width: 150px;
+    width: 180px;
     position : absolute;
-    bottom: 20px;
+    bottom: 100px;
     left: 20px;
 }
 #meta {
-    width:80px;
+    width:120px;
     position: absolute;
-    bottom:20px;
+    bottom:100px;
     right:50px;
+}
+#ball {
+    position: absolute;
+    width: 70px;
+    left: 200px;
+    bottom: 100px;
+    transform: scaleX(-1);
+    display: none;
+}
+.background{
+    position:absolute;
+    background-image: url('../assets/background.jpg');
+    height: 100%;
+    width: 200%;
+    background-size: contain;
+    animation-name: bg-slide;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#score {
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    left: 20px;
+    top: 20px;
+  }
+
+
+@keyframes bg-slide {
+    from{
+        left: 0px;
+    }
+    to{
+        left: -100%;
+    }
 }
