@@ -12,9 +12,29 @@
     <div class="container">
             <img id="pika" src="assets/i013894533712.gif" alt="pikachu">
             <img id="meta" src="assets/meta.png" alt="metamong">
+            <div id="score">점수 :0</div>
     </div>
     <script>
         let isJumping = false;
+        let isGameOver = false;
+        let score =0;
+        
+
+        function pikaDown(){
+            if(isGameOver){
+                return;
+            }
+            let pikaRight =250;
+
+            let metaLeft = Number($('#meta').css('left').replace('px',''));
+
+            if(metaLeft <= pikaRight && isJumping == false){
+                console.log('die');
+                // alert('Game Over');
+                $('#meta').stop();
+                isGameOver =true;
+            }
+        }
 
         function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
@@ -22,8 +42,8 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
         }
         function metaStart(){
-            let speed = getRandomIntInclusive(800, 1000); //1초에서 2초 사이
-            let respawnTime = getRandomIntInclusive(500,2000);
+            let speed = getRandomIntInclusive(1000, 1500); //1초에서 2초 사이
+            let respawnTime = getRandomIntInclusive(1000,2000);
 
             $('#meta').animate({left:'-120px'},speed,function(){
                 //왼쪽 끝까지 가면 초기 위치로 이동
@@ -54,7 +74,10 @@
                         break;
                 }
             })
+            //메타몽 출발
             metaStart();
+            //충돌체크
+            setInterval(pikaDown, 10);
         });
 
     </script>
