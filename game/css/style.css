@@ -10,3 +10,9 @@
     bottom: 20px;
     left: 20px;
 }
+#meta {
+    width:80px;
+    position: absolute;
+    bottom:20px;
+    right:50px;
+}

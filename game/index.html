@@ -11,10 +11,29 @@
 <body>
     <div class="container">
             <img id="pika" src="assets/i013894533712.gif" alt="pikachu">
+            <img id="meta" src="assets/meta.png" alt="metamong">
     </div>
     <script>
-        
         let isJumping = false;
+
+        function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function metaStart(){
+            let speed = getRandomIntInclusive(800, 1000); //1초에서 2초 사이
+            let respawnTime = getRandomIntInclusive(500,2000);
+
+            $('#meta').animate({left:'-120px'},speed,function(){
+                //왼쪽 끝까지 가면 초기 위치로 이동
+                $('#meta').css('right', '-150px').css('left','');
+                //디시출발
+                setTimeout(metaStart,respawnTime);
+
+            });
+        }
+
         //연타방지
         function jump() {
             if(isJumping){
@@ -35,6 +54,7 @@
                         break;
                 }
             })
+            metaStart();
         });
 
     </script>
