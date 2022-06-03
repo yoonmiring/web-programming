@@ -68,15 +68,20 @@
                 $("input[name=chk]").prop("checked", false);
             }
         });
-        
+        //체크된 row값 가져오기
         $('#log_button').click(function () {
+            
             var rowData = new Array();
 			var tdArr = new Array();
             var checkbox = $("input[name=chk]:checked");
+            
             if($('input[name=chk]:checkbox:checked').length > 0){
                 //체크된 체크박스 값을 가져온다.
                 checkbox.each(function(i) {
                     
+                    // checkbox.parent() : checkbox의 부모는 <td>이다.
+				    // checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
+
                     var tr = checkbox.parent().parent().eq(i);
                     var td = tr.children();
                     
