@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body onload="loadData()">
+    <style>
+
+        /* Add some padding inside the card container */
+        .container {
+            font-size: large;
+            padding: 2px 16px;
+            text-align: center;
+            color: white;
+        }
+
+        img {
+            border-radius: 20px 20px 20px 20px;  
+        }
+        img:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        } 
+
+        table,
+        th,
+        td {
+            background-color: #466093;
+           
+        }
+    </style>
+    <script>
+         function movePage(userId){
+            console.log(userId);
+            //페이지 이동
+            document.location.href = `exam6_movie.html?id=${userId}`;
+         }
+        function loadData() {
+            fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1')
+            .then(response => response.json())
+            .then(movieArray => {
+                let $movies = $('#movies');
+                movieArray.results.forEach((data ,i) => {
+
+                    if(i % 3 == 0){
+                        $movies.append('<tr>');
+                    }
+                    $movies.append(`<td class="card" onclick="movePage(${data.id})">
+                                    <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="poster" style="width:100%">
+                                        <div class="container">
+                                            <h4><b>${data.title}</b></h4>
+                                        </div>
+                                    </td>`);
+                if((i + 1) % 3 == 0){
+                    $movies.append('</tr>')
+                }
+            });
+        })
+    }
+
+    </script>
+    <table id="movies"></table>
+</body>
+</html>
