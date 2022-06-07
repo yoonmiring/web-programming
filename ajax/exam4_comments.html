@@ -17,8 +17,8 @@
             console.log(id);
 
             loadData(id);
-        })
-        function loadData() {
+        });
+        function loadData(id) {
             fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`)
             .then(response => response.json())
             .then(jsonArray => {
