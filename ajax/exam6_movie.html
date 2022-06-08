@@ -23,6 +23,14 @@
         #poster{
             width: 70%;
         }
+        #box{
+            position: relative;
+            background-color: rgb(255, 204, 255);
+            width: 50px;
+            border-radius: 10px 10px 10px 10px;  
+            margin: 10px;
+            padding: 10px;
+        }
     </style>
     <script>
         $(function(){
@@ -45,8 +53,8 @@
                                                                 <td id="poster"> <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="poster"> </td>
                                                                 <td> 
                                                                     <div>개봉일 : ${movie.release_date} </div> <br>
-                                                                     <div> √ ${movie.vote_count}</div> 
-                                                                     <div> ★ ${movie.vote_average} </div>
+                                                                     <div id="box"> √ ${movie.vote_count}</div> 
+                                                                     <div id="box"> ★ ${movie.vote_average} </div>
                                                                 </td>
                                                             </tr>
     
