@@ -18,6 +18,6 @@ public class word2 {
 	}
 	//i번째 글자가 자음인지
 	public boolean isConsonant(int i) {
-		return !("aueio".contains(letters.substring(i, i + 1)));
+		return !isVowel(i);
 	}
 }
