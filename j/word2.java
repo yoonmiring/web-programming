@@ -8,7 +8,6 @@ public class word2 {
 
 	}
 	private String letters;
-	private int result;
 	public word(String letters) {
 		this.letters = letters.toLowerCase();
 	}
