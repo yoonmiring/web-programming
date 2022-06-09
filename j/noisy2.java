@@ -18,9 +18,9 @@ public class noisy2 {
 	      ArrayList<String> results = new ArrayList<>();
 
 	      for (int i = 0; i < N; i++) {
-	         StringTokenizer st2 = new StringTokenizer(br.readLine());
-	         int x = Integer.parseInt(st2.nextToken());
-	         int y = Integer.parseInt(st2.nextToken());
+	         StringTokenizer st = new StringTokenizer(br.readLine());
+	         int x = Integer.parseInt(st.nextToken());
+	         int y = Integer.parseInt(st.nextToken());
 	         String check = "noisy";
 	         
 	         if (Math.pow((x - a), 2) + Math.pow((y - b), 2) >= Math.pow(R, 2)) {
