@@ -8,17 +8,16 @@ public class String {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int[] arr = new int[10];
-		for(int i=0;i <10;i++) {
-			arr[i] = sc.nextInt();
+		int n = sc.nextInt();
+		String []arr = new String[n];
+		for(int i=0;i<n;i++) {
+			arr[i] = sc.next();
+		}		
+		System.out.print("Hello ");
+		for(int i=0; i<(n-1); i++) {
+			System.out.print(arr[i]+",");
 		}
-		for(int i=0; i<10; i++) {
-			int result = arr[i] % 42;
-			System.out.println(result);
-		}
-
-		Date now = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
+		System.out.print(arr[(n-1)]+".");
 	}
 }
 
